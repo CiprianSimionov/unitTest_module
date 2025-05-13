@@ -3,6 +3,7 @@ import HtmlTestRunner
 
 from elefant import TestElefant
 from alerts import TestAlerts
+from emag import TestEmag
 
 
 class TestSuite(unittest.TestCase):
@@ -10,7 +11,8 @@ class TestSuite(unittest.TestCase):
         running_tests = unittest.TestSuite()
         running_tests.addTests([
             unittest.defaultTestLoader.loadTestsFromTestCase(TestAlerts),
-            unittest.defaultTestLoader.loadTestsFromTestCase(TestElefant)
+            unittest.defaultTestLoader.loadTestsFromTestCase(TestElefant),
+            unittest.defaultTestLoader.loadTestsFromTestCase(TestEmag)
         ])
         runner = HtmlTestRunner.HTMLTestRunner(
             combine_reports=True,
