@@ -31,20 +31,20 @@ class TestElefant(unittest.TestCase):
         WebDriverWait(self.chrome, 6).until(EC.presence_of_element_located((By.ID, 'CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll')))
         self.chrome.find_element(By.ID, "CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll").click()
         #self.chrome.find_element(By.XPATH, "//a[contains(text(), \"inapoi in site\")]").click()
-        self.chrome.find_element(By.XPATH, "//input[@name=\"SearchTerm\"]").send_keys("alex frith")
+        self.chrome.find_element(By.XPATH, "//input[@name=\"SearchTerm\"]").send_keys("jean huon")
         self.chrome.find_element(By.XPATH, "//button[contains(@class, \"btn-search\")]").click()
         self.chrome.implicitly_wait(6)  # awaits for products to load on page
         produse = self.chrome.find_elements(By.CLASS_NAME, "product-title")
-        assert len(produse) == 12
+        assert len(produse) == 2
 
     def test_search_products_with_keys_library(self):
         WebDriverWait(self.chrome, 8).until(EC.presence_of_element_located((By.ID, 'CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll')))
         self.chrome.find_element(By.ID, "CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll").click()
         #self.chrome.find_element(By.XPATH, "//a[contains(text(), \"inapoi in site\")]").click()
-        self.chrome.find_element(By.XPATH, "//input[@name=\"SearchTerm\"]").send_keys("alex frithk")
+        self.chrome.find_element(By.XPATH, "//input[@name=\"SearchTerm\"]").send_keys("jean huonk")
         self.chrome.find_element(By.XPATH, "//input[@name=\"SearchTerm\"]").send_keys(Keys.BACKSPACE)
         self.chrome.find_element(By.XPATH, "//input[@name=\"SearchTerm\"]").send_keys(Keys.ENTER)
         self.chrome.implicitly_wait(8)
         produse = self.chrome.find_elements(By.CLASS_NAME, "product-title")
-        assert len(produse) == 12
+        assert len(produse) == 2
 
